@@ -4,11 +4,6 @@ AudioFile::AudioFile(const char * path) {
   this->stream = fopen(path, "rb");
 }
 
-void AudioFile::read(char * buffer, size_t size) {
-  memset(buffer, 0, size);
-  fread(buffer, 1, size, this->stream);
-}
-
 int AudioFile::get_int(char * buffer, FileEndian fe) {
   int result = 0;
 

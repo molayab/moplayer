@@ -11,10 +11,10 @@ typedef enum FileEndian {
 } FileEndian;
 
 class AudioFile {
-private:
-  FILE * stream;
+protected:
 
 public:
+  FILE * stream;
   AudioFile(const char *);
   //virtual void * get_header() = 0;
 
