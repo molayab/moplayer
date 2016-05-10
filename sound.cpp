@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Wav file("/Users/molayab/Desktop/03 Se Activaron Los Anormales.wav");
+char * name;
 
 /**int integer_value(char * bytes, bool little_endian = true) {
   int rest = 0;
@@ -27,6 +27,7 @@ float hanning_window(short input, size_t pos, size_t size) {
 }
 
 void read() {
+  Wav file(name);
   /*ifstream ifs("/Users/molayab/Desktop/La Boda.wav", ios::in | ios::binary);
 
   wav_header header;
@@ -81,6 +82,7 @@ void read() {
 
   for(;;) {
     cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+
     // Leer de archivo el buffer y hacer seek al siguiente data.
     size_t n = fread(buffer, sizeof(uint8_t), sample_len, file.stream);
 
@@ -100,7 +102,12 @@ void read() {
 }
 
 int main(int argc, char ** argv) {
+  if (argc < 2) {
+    perror("No se especifico el archivo");
+    return 1;
+  }
 
+  name = argv[1];
   read();
 
 
